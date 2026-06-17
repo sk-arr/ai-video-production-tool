@@ -12,213 +12,144 @@ st.set_page_config(
     layout="wide",
 )
 
+
 st.markdown(
     """
     <style>
     .stApp {
-        background:
-            radial-gradient(circle at 8% 0%, rgba(45, 212, 191, 0.15), transparent 30rem),
-            radial-gradient(circle at 92% 12%, rgba(59, 130, 246, 0.10), transparent 28rem),
-            linear-gradient(135deg, #f8fafc 0%, #eef2f7 52%, #f8fafc 100%);
+        background: linear-gradient(180deg, #f6f8fb 0%, #eef2f7 100%);
     }
     .block-container {
-        max-width: 1220px;
         padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-bottom: 2.5rem;
+        max-width: 1180px;
     }
-    section[data-testid="stSidebar"] {
-        background: #ffffff;
-        border-right: 1px solid #e2e8f0;
+    .hero-card {
+        padding: 30px 34px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #111827 0%, #1f2937 56%, #374151 100%);
+        color: white;
+        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+        margin-bottom: 22px;
     }
-    section[data-testid="stSidebar"] h2,
-    section[data-testid="stSidebar"] h3 {
-        color: #0f172a;
-    }
-    section[data-testid="stSidebar"] .stMarkdown,
-    section[data-testid="stSidebar"] li {
-        color: #475569;
-        font-size: 14px;
-        line-height: 1.65;
-    }
-    .hero {
-        border: 1px solid rgba(203, 213, 225, 0.78);
-        border-radius: 20px;
-        padding: 34px 36px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
-        margin-bottom: 18px;
-    }
-    .hero-eyebrow {
-        color: #0f766e;
+    .hero-kicker {
         font-size: 13px;
-        font-weight: 800;
+        letter-spacing: 0.16em;
+        color: #c7d2fe;
+        font-weight: 700;
         margin-bottom: 10px;
     }
     .hero-title {
-        color: #0f172a;
         font-size: 38px;
         font-weight: 850;
         line-height: 1.18;
         margin-bottom: 12px;
     }
     .hero-subtitle {
-        color: #475569;
-        font-size: 17px;
-        line-height: 1.7;
-        max-width: 820px;
+        font-size: 16px;
+        color: #e5e7eb;
+        line-height: 1.75;
+        max-width: 840px;
         margin-bottom: 18px;
     }
     .tag {
         display: inline-block;
-        padding: 6px 12px;
-        border: 1px solid #dbe4ef;
+        padding: 6px 11px;
         border-radius: 999px;
-        background: #f8fafc;
-        color: #334155;
+        margin: 0 8px 8px 0;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #f9fafb;
         font-size: 13px;
-        margin-right: 8px;
-        margin-bottom: 8px;
+        font-weight: 600;
     }
     .mode-box {
-        margin-top: 14px;
-        border: 1px solid #99f6e4;
-        border-radius: 12px;
-        background: #f0fdfa;
-        color: #115e59;
+        margin-top: 12px;
         padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #f3f4f6;
         font-size: 14px;
-        line-height: 1.55;
     }
     .metric-card {
-        border: 1px solid rgba(203, 213, 225, 0.82);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.86);
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.055);
-        padding: 17px 18px;
-        min-height: 112px;
-        margin-bottom: 16px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 18px;
+        min-height: 106px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
     .metric-title {
-        color: #0f766e;
+        color: #6b7280;
         font-size: 13px;
-        font-weight: 800;
-        margin-bottom: 9px;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
     .metric-value {
-        color: #0f172a;
+        color: #111827;
         font-size: 17px;
-        font-weight: 780;
+        font-weight: 800;
         line-height: 1.45;
     }
     .section-title {
-        color: #0f172a;
-        font-size: 22px;
-        font-weight: 840;
-        margin: 18px 0 10px 0;
+        margin-top: 24px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
-    .step-badge {
+    .step-pill {
         display: inline-block;
-        color: #ffffff;
-        background: #0f172a;
+        padding: 5px 10px;
         border-radius: 999px;
-        padding: 4px 10px;
-        margin-right: 8px;
+        background: #111827;
+        color: #ffffff;
         font-size: 12px;
-        font-weight: 780;
+        font-weight: 800;
     }
-    .section-note {
-        color: #64748b;
+    .section-heading {
+        font-size: 22px;
+        font-weight: 850;
+        color: #111827;
+    }
+    .muted {
+        color: #6b7280;
         font-size: 14px;
         line-height: 1.65;
-        margin-bottom: 12px;
     }
     .selected-topic {
-        border: 1px solid #bfdbfe;
-        border-radius: 12px;
-        background: #eff6ff;
-        color: #1e3a8a;
-        padding: 12px 14px;
-        margin: 12px 0;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    .history-card {
-        border: 1px solid rgba(203, 213, 225, 0.82);
+        background: #ecfdf5;
+        border: 1px solid #a7f3d0;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.86);
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.055);
-        padding: 18px;
-        margin-top: 18px;
+        padding: 14px;
+        margin-top: 12px;
     }
-    .history-title {
-        color: #0f172a;
-        font-size: 18px;
-        font-weight: 800;
-        margin-bottom: 6px;
-    }
-    .history-desc {
-        color: #64748b;
-        font-size: 13px;
-        line-height: 1.55;
-        margin-bottom: 10px;
-    }
-    .value-section {
-        margin-top: 28px;
-        border: 1px solid rgba(203, 213, 225, 0.82);
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0 20px 48px rgba(15, 23, 42, 0.07);
-        padding: 24px 26px;
-    }
-    .value-title {
-        color: #0f172a;
-        font-size: 24px;
-        font-weight: 850;
-        margin-bottom: 8px;
-    }
-    .value-subtitle {
-        color: #64748b;
-        font-size: 14px;
-        line-height: 1.65;
-        margin-bottom: 14px;
+    .history-panel {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+        margin-top: 24px;
     }
     .value-card {
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        background: #f8fafc;
-        min-height: 145px;
-        padding: 16px;
-        color: #334155;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 18px;
+        min-height: 150px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
     }
-    .value-card-title {
-        color: #0f172a;
-        font-size: 16px;
-        font-weight: 800;
-        margin-bottom: 8px;
+    .value-card h4 {
+        margin: 0 0 10px 0;
+        color: #111827;
     }
-    .value-card-body {
-        color: #475569;
+    .value-card p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.65;
         font-size: 14px;
-        line-height: 1.62;
-    }
-    div[data-testid="stVerticalBlockBorderWrapper"] {
-        border-color: rgba(203, 213, 225, 0.86);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.055);
-    }
-    div[data-testid="stButton"] > button,
-    div[data-testid="stDownloadButton"] > button {
-        border-radius: 10px;
-        min-height: 42px;
-        font-weight: 700;
-    }
-    div[data-testid="stTextInput"] input {
-        border-radius: 10px;
-    }
-    div[data-testid="stDataFrame"] {
-        border-radius: 12px;
-        overflow: hidden;
     }
     </style>
     """,
@@ -228,7 +159,12 @@ st.markdown(
 
 def render_section_title(step: str, title: str) -> None:
     st.markdown(
-        f'<div class="section-title"><span class="step-badge">{step}</span>{title}</div>',
+        f"""
+        <div class="section-title">
+            <span class="step-pill">{step}</span>
+            <span class="section-heading">{title}</span>
+        </div>
+        """,
         unsafe_allow_html=True,
     )
 
@@ -249,8 +185,8 @@ def render_value_card(title: str, body: str) -> None:
     st.markdown(
         f"""
         <div class="value-card">
-            <div class="value-card-title">{title}</div>
-            <div class="value-card-body">{body}</div>
+            <h4>{title}</h4>
+            <p>{body}</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -259,6 +195,7 @@ def render_value_card(title: str, body: str) -> None:
 
 with st.sidebar:
     st.markdown("## 项目说明")
+
     st.markdown("### 项目定位")
     st.write("AI辅助短剧/短视频生产效率工具")
 
@@ -291,8 +228,8 @@ with st.sidebar:
 
 st.markdown(
     """
-    <div class="hero">
-        <div class="hero-eyebrow">AI CONTENT WORKFLOW MVP</div>
+    <div class="hero-card">
+        <div class="hero-kicker">AI CONTENT WORKFLOW MVP</div>
         <div class="hero-title">AI短剧/短视频生产效率工具</div>
         <div class="hero-subtitle">
             输入一个主题，快速生成选题、脚本和分镜方案，帮助短剧/短视频团队减少重复整理工作。
@@ -304,13 +241,13 @@ st.markdown(
         <span class="tag">Markdown导出</span>
         <span class="tag">可演示MVP</span>
         <div class="mode-box">
-            当前模式：Mock 数据演示版<br>
-            后续可接入 Claude / OpenAI / DeepSeek 等大模型 API
+            当前模式：Mock 数据演示版。后续可接入 Claude / OpenAI / DeepSeek 等大模型 API。
         </div>
     </div>
     """,
     unsafe_allow_html=True,
 )
+
 
 metric_columns = st.columns(4)
 metrics = [
@@ -319,9 +256,11 @@ metrics = [
     ("业务场景", "短剧 / 短视频内容生产"),
     ("扩展能力", "可接入真实大模型 API"),
 ]
+
 for column, (title, value) in zip(metric_columns, metrics):
     with column:
         render_metric_card(title, value)
+
 
 if "topics" not in st.session_state:
     st.session_state.topics = []
@@ -339,10 +278,11 @@ main_col, history_col = st.columns([2.35, 0.95], gap="large")
 
 with main_col:
     render_section_title("Step 1", "输入主题并生成选题")
+
     with st.container(border=True):
         st.markdown("#### 内容主题")
         st.markdown(
-            '<div class="section-note">输入一个内容方向，生成适合继续策划的短剧/短视频选题。</div>',
+            '<div class="muted">输入一个内容方向，生成适合继续策划的短剧/短视频选题。</div>',
             unsafe_allow_html=True,
         )
         theme = st.text_input(
@@ -351,7 +291,7 @@ with main_col:
             label_visibility="collapsed",
         )
 
-        if st.button("生成选题", type="primary", width="stretch"):
+        if st.button("生成选题", type="primary", use_container_width=True):
             st.session_state.topics = generate_topics(theme)
             st.session_state.selected_topic_index = None
             st.session_state.selected_topic = None
@@ -365,6 +305,7 @@ with main_col:
         st.info("先在 Step 1 生成选题，再选择一个方向继续生成脚本。")
     else:
         topic_columns = st.columns(3)
+
         for index, topic in enumerate(st.session_state.topics):
             with topic_columns[index % 3]:
                 with st.container(border=True):
@@ -381,21 +322,22 @@ with main_col:
                     if st.button(
                         "选择这个选题",
                         key=f"select_topic_{index}",
-                        width="stretch",
+                        use_container_width=True,
                         type="primary" if is_selected else "secondary",
                     ):
                         st.session_state.selected_topic_index = index
                         st.session_state.selected_topic = topic
                         st.session_state.script = None
                         st.session_state.storyboard = None
+                        st.rerun()
 
         selected_topic = st.session_state.selected_topic
         if selected_topic:
             st.markdown(
                 f"""
                 <div class="selected-topic">
-                    <strong>已选选题：</strong>{selected_topic['title']}<br>
-                    {selected_topic['summary']}
+                    <b>已选选题：</b>{selected_topic['title']}<br>
+                    <span>{selected_topic['summary']}</span>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -403,7 +345,7 @@ with main_col:
 
         if st.button(
             "生成脚本",
-            width="stretch",
+            use_container_width=True,
             disabled=not bool(selected_topic),
         ):
             st.session_state.script = generate_script(st.session_state.selected_topic)
@@ -414,9 +356,10 @@ with main_col:
 
     if st.session_state.script:
         st.markdown(
-            '<div class="section-note">脚本按开场、冲突、结尾拆分，方便快速评审和继续生成分镜。</div>',
+            '<div class="muted">脚本按开场、冲突、结尾拆分，方便快速评审和继续生成分镜。</div>',
             unsafe_allow_html=True,
         )
+
         script = st.session_state.script
         script_columns = st.columns(3)
         for column, (label, content) in zip(
@@ -437,13 +380,13 @@ with main_col:
     with st.container(border=True):
         st.markdown("#### 分镜表")
         st.markdown(
-            '<div class="section-note">把脚本拆解为镜头编号、画面描述、台词/旁白、时长和运镜建议。</div>',
+            '<div class="muted">把脚本拆解为镜头编号、画面描述、台词/旁白、时长和运镜建议。</div>',
             unsafe_allow_html=True,
         )
 
         if st.button(
             "生成分镜表",
-            width="stretch",
+            use_container_width=True,
             disabled=not bool(st.session_state.script),
         ):
             st.session_state.storyboard = generate_storyboard(st.session_state.script)
@@ -459,7 +402,7 @@ with main_col:
         if st.session_state.storyboard:
             st.dataframe(
                 format_storyboard_for_display(st.session_state.storyboard),
-                width="stretch",
+                use_container_width=True,
                 hide_index=True,
             )
 
@@ -476,31 +419,31 @@ with main_col:
                 data=markdown,
                 file_name="ai_video_plan.md",
                 mime="text/markdown",
-                width="stretch",
+                use_container_width=True,
             )
 
+
 with history_col:
+    st.markdown('<div class="history-panel">', unsafe_allow_html=True)
+    st.markdown("### 历史记录")
     st.markdown(
-        """
-        <div class="history-card">
-            <div class="history-title">历史记录</div>
-            <div class="history-desc">生成分镜后自动保存，便于恢复最近方案。</div>
-        </div>
-        """,
+        '<div class="muted">生成分镜后自动保存，便于恢复最近方案。</div>',
         unsafe_allow_html=True,
     )
-    history = load_history()
 
+    history = load_history()
     if not history:
         st.info("还没有历史记录。")
     else:
         for index, item in enumerate(history[:5]):
             topic = item.get("topic", {})
             title = topic.get("title", "未命名方案")
+
             with st.expander(title):
                 st.caption(item.get("created_at", ""))
                 st.markdown(f"**选题标题：** {title}")
                 st.write(topic.get("summary", ""))
+
                 if st.button("恢复这个方案", key=f"restore_{index}_{item.get('created_at', '')}"):
                     st.session_state.topics = [topic] if topic else []
                     st.session_state.selected_topic_index = 0 if topic else None
@@ -509,15 +452,13 @@ with history_col:
                     st.session_state.storyboard = item.get("storyboard")
                     st.rerun()
 
+    st.markdown("</div>", unsafe_allow_html=True)
+
+
+st.markdown("---")
+st.markdown("## 项目价值")
 st.markdown(
-    """
-    <div class="value-section">
-        <div class="value-title">项目价值</div>
-        <div class="value-subtitle">
-            这个 MVP 重点展示如何把内容生产中的重复整理工作，拆解成可操作、可导出、可复用的工具流程。
-        </div>
-    </div>
-    """,
+    '<div class="muted">这个 MVP 重点展示如何把内容生产中的重复整理工作，拆解成可操作、可导出、可复用的工具流程。</div>',
     unsafe_allow_html=True,
 )
 
@@ -540,6 +481,7 @@ value_cards = [
         "后续可接入 Claude、OpenAI、DeepSeek 等大模型 API，并增加 Prompt 模板管理和成本统计。",
     ),
 ]
+
 for column, (title, body) in zip(value_columns, value_cards):
     with column:
         render_value_card(title, body)
