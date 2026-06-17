@@ -58,3 +58,17 @@ def format_storyboard_for_display(storyboard: List[Dict[str, str]]) -> List[Dict
         }
         for item in storyboard
     ]
+def format_storyboard_for_display(storyboard: List[Dict[str, str]]) -> List[Dict[str, str]]:
+    """
+    Convert internal storyboard fields into Chinese table columns for display.
+    """
+    return [
+        {
+            "镜头编号": item.get("shot", ""),
+            "画面描述": item.get("visual", ""),
+            "台词/旁白": item.get("voice", ""),
+            "时长": item.get("duration", ""),
+            "运镜建议": item.get("camera", ""),
+        }
+        for item in storyboard
+    ]
